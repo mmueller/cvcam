@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8)
+project(object-tracker)
+find_package(OpenCV REQUIRED)
+set(CMAKE_CXX_FLAGS "-g -Wall -Wno-unused-function")
+add_executable(object-tracker Main.cpp Tracker.cpp)
+target_link_libraries(object-tracker ${OpenCV_LIBS} ${CURL_LIBRARIES})

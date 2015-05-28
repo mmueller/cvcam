@@ -1,0 +1,36 @@
+Build instructions (typical cmake project):
+
+    $ mkdir build
+    $ cd build
+    $ cmake ..
+    $ make
+
+Run:
+
+    ./object-tracker [video-stream-url-or-file]
+
+Foscam MJPEG stream URL example (needs to be enabled first! call
+setSubStreamType with 1 (MJPEG) instead of the default 0 (h264)):
+
+ http://foscam:88/cgi-bin/CGIStream.cgi?cmd=GetMJStream&usr=user&pwd=pass#x.mjpg
+
+The #x.mjpg has no effect except to trick OpenCV's VideoCapture into treating
+the stream as MJPEG. (It looks for a filename suffix, I guess.)
+
+Foscam RTSP stream URL example (usually doesn't work as well):
+
+ rtsp://user:pass@foscam:88/videoMain
+
+By the way, this code is probably horrible. I'm a novice at this whole
+computer vision thing and decided to just hack around until I had something
+that sort of works. I'm going to hit the books now and start learning how the
+professionals do this sort of thing.
+
+Other random video streams to try:
+
+* Some street in Germany: http://gdbmarkt.axiscam.net:9000/mjpg/video.mjpg
+* Some street in Massachusetts: http://155.41.145.37/mjpg/video.mjpg
+* Some street in Croatia: http://212.92.202.121/mjpg/video.mjpg
+* A town square in Hungary: http://77.221.39.163/mjpg/video.mjpg
+* A town square in Finland: http://79.141.146.81/mjpg/video.mjpg
+* A train stop in Austria: http://86.56.142.34/axis-cgi/mjpg/video.cgi?camera=&resolution=704x576&1420272801870#f.mjpg
